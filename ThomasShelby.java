@@ -20,13 +20,13 @@ public class ThomasShelby {
                 }
             } else { // add cmd, mark or unmark
                 String[] cmdSplit = cmd.split("\\s+");
-                if (cmdSplit[0].equals("mark")) {
+                if (cmdSplit[0].equals("mark") && Character.isDigit(cmdSplit[1].charAt(0))) {
                     int whichTask = Integer.parseInt(cmdSplit[1]) - 1; // shift back index
                     taskManager[whichTask].setIsDone(true);
                     System.out.println("That was long due, well done.");
                     System.out.println(taskManager[whichTask].getStatusIcon() 
                             + " " + taskManager[whichTask].getDescription());
-                } else if (cmdSplit[0].equals("unmark")) {
+                } else if (cmdSplit[0].equals("unmark")&& Character.isDigit(cmdSplit[1].charAt(0))) {
                     int whichTask = Integer.parseInt(cmdSplit[1]) - 1; // shift back index
                     taskManager[whichTask].setIsDone(false);
                     System.out.println("You've gotten lazy.");
@@ -42,6 +42,6 @@ public class ThomasShelby {
                 }
             }
         }
-        System.out.print("Cheers.");
+        System.out.println("Cheers.");
     }
 }
